@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 var cors = require("cors");
+const connect = require("./src/database/db");
 
 /************************** MidlleWare ****************************/
 app.use(express.urlencoded({ extended: true }));
@@ -23,7 +24,8 @@ app.use(allowCrossDomain);
 require("./src/database/db");
 
 /************************** Routes ****************************/
-// require("./routes/route")(app, connection);
+require('./src/routes/sign_up')(app,connect)
+require("./src/routes/sign_in")(app,connect)
 
 //connection.end();
 
