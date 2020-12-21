@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Itistsuna/chefdoeuvre#readme",
   "dependencies": {
+    "axios": "^0.21.0",
     "bcrypt": "^5.0.0",
     "cors": "^2.8.5",
     "env-cmd": "^10.1.0",
