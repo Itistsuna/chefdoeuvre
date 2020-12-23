@@ -6,17 +6,18 @@ class DashboardComponent extends Component{
     constructor(props){
         super(props);
         this.state = {
-            test: 1
+
         }
     }
     render(){
         return(
             <div>
-              test  
+              Mon dashboard
             </div>
         )   
     }
     
 }
+
 
 export default DashboardComponent
