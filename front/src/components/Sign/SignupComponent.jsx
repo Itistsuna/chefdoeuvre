@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import NavSign from "./navSign"
 import Input from '../Form/Input'
+import '../../scss/signUp.css'
 class SignupComponent extends Component{
     constructor(props){
         super(props);
@@ -92,7 +94,7 @@ class SignupComponent extends Component{
                 name: 'nom',
                 value: this.state.name,
                 onChange: this.handleName,
-                label: 'Nom',
+                label: 'Nom :',
                 id: 1
             },
             {
@@ -100,7 +102,7 @@ class SignupComponent extends Component{
                 name: 'prenom',
                 value: this.state.prenom,
                 onChange: this.handlePrenom,
-                label: 'Prénom',
+                label: 'Prénom :',
                 id: 2
             },
             {
@@ -108,7 +110,7 @@ class SignupComponent extends Component{
                 name: 'adress',
                 value: this.state.adress,
                 onChange: this.handleAdress,
-                label: 'Adresse',
+                label: 'Adresse :',
                 id: 3
             },
             {
@@ -116,7 +118,7 @@ class SignupComponent extends Component{
                 name: 'cp',
                 value: this.state.cp,
                 onChange: this.handleCp,
-                label: 'Code postal',
+                label: 'Code postal :',
                 id: 4
             },
             {
@@ -124,7 +126,7 @@ class SignupComponent extends Component{
                 name: 'city',
                 value: this.state.city,
                 onChange: this.handleCity,
-                label: 'Ville',
+                label: 'Ville :',
                 id: 5
             },
             {
@@ -132,7 +134,7 @@ class SignupComponent extends Component{
                 name: 'telephone',
                 value: this.state.tel,
                 onChange: this.handleTel,
-                label: 'Numéro de téléphone',
+                label: 'Numéro de téléphone :',
                 id: 6
             },
             {
@@ -140,7 +142,7 @@ class SignupComponent extends Component{
                 name: 'mail',
                 value: this.state.mail,
                 onChange: this.handleMail,
-                label: 'Mail',
+                label: 'Mail :',
                 id: 7
             },
             {
@@ -148,20 +150,28 @@ class SignupComponent extends Component{
                 name: 'password',
                 value: this.state.password,
                 onChange: this.handlePassword,
-                label: 'Mot de passe',
+                label: 'Mot de passe :',
                 id: 8
             }
         ]
         return(
             <div>
-              {
+                <NavSign/>
+                <style>
+                    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+                </style> 
+                <form >
+                {
                   form.map((elem)=>{
                       return <Input form={elem} key={elem.id}/>
                   })
-              }  
-              <button onClick={this.signUp}>
+                } 
+                <button onClick={this.signUp}>
                   Sign Up
-              </button>
+                </button>    
+                </form>
+              
+              
             </div>
         )   
     }

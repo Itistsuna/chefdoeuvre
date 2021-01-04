@@ -3,7 +3,9 @@ import React, {Component} from 'react'
 class Input extends Component {
     render(){
         return(
-            <div>
+            <div className="input">
+                <label>{this.props.form.label}</label> 
+                <br/>
                 <input 
                     type={this.props.form.type}
                     name={this.props.form.name}
@@ -11,7 +13,6 @@ class Input extends Component {
                     onChange={this.props.form.onChange}
                     required
                 />
-                <label>{this.props.form.label}</label>  
             </div>
             
         )

@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  font-family: 'Roboto', sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: #eea02a;
+}
+
+.navBarSign {
+  margin: 4% 40%;
+  width: 20vw;
+  height: 5vh;
+}
+
+.navBarSign a {
+  margin: 0 7%;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #cf866c;
+          box-shadow: inset 0px 1px 0px 0px #cf866c;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #d0451b), to(#bc3315));
+  background: linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+  background-color: #d0451b;
+  border-radius: 6px;
+  border: 1px solid #942911;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 18px;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #854629;
+}
+
+.navBarSign a:hover {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #bc3315), to(#d0451b));
+  background: linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+  background-color: #bc3315;
+}
+
+form {
+  margin: 0 33.3%;
+  padding: 0.5%;
+  width: 33.3vw;
+  height: 65vh;
+  border-radius: 6px;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+form .input {
+  margin: 2.5% 27%;
+  height: 5vh;
+}
+
+form .input input {
+  height: 2.5vh;
+  width: 14vw;
+  border-radius: 3px;
+}
+
+form button {
+  -webkit-box-shadow: 0 0 0;
+          box-shadow: 0 0 0;
+  cursor: pointer;
+  border-radius: 6px;
+  height: 4vh;
+  width: 10vw;
+  margin: 2.5% 33%;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #cf866c;
+          box-shadow: inset 0px 1px 0px 0px #cf866c;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #d0451b), to(#bc3315));
+  background: linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+  background-color: #d0451b;
+  border-radius: 6px;
+  border: 1px solid #942911;
+  display: inline-block;
+  color: #ffffff;
+  font-size: 15px;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #854629;
+}
+
+form button:hover {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #bc3315), to(#d0451b));
+  background: linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+  background-color: #bc3315;
+}
+/*# sourceMappingURL=signUp.css.map */
