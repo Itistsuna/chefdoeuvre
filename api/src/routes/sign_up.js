@@ -1,7 +1,6 @@
 const bcrypt = require('bcrypt')
 const signUp = async function(app, connect){
     app.post('/sign-up', async (req,res,next) => {
-        
         let sql = `SELECT mail FROM client WHERE mail = '${req.body.email}'`
         if(req.body.email){
             connect.query(sql, (err,result) => {
@@ -25,6 +24,8 @@ const signUp = async function(app, connect){
                     if (err) throw err
                     res.send('Inscription done')
                 })
+            }else{
+                res.send({data: "incomplet"})
             }
     })
 }

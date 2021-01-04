@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Input from './Form/Input'
+import Input from '../Form/Input'
 import {connect} from 'react-redux'
-import Axios from "axios";
-import {setToken, authTrue} from '../store/actions/userAction'
+import axios from "axios";
+import {setToken, authTrue} from '../../store/actions/userAction'
 class SignInComponent extends Component{
     constructor(props){
         super(props);
@@ -10,8 +10,9 @@ class SignInComponent extends Component{
             mail: '',
             password: ""
         }
-        this.handleMail = this.handleMail().bind(this)
-        this.handlePassword = this.handlePassword().bind(this)
+        this.handleMail = this.handleMail.bind(this)
+        this.handlePassword = this.handlePassword.bind(this)
+        this.signIn = this.signIn.bind(this)
     }
     handleMail(event){
         this.setState({
@@ -24,14 +25,16 @@ class SignInComponent extends Component{
         })
     }
 
-    signIn(){
-        Axios.post('http://localhost:8080/sign-in',{
+    signIn(){        
+        let userObject = {
             password: this.state.password,
-            mail: this.state.mail
-        }).then((result) =>{
-          if(result.auth === true) {
-              this.props.setToken()
+            email: this.state.mail   
+        }
+        axios.post('http://localhost:8080/sign-in',userObject).then((result) =>{
+          if(result.data.auth === true) {
+              this.props.setToken(result.data.token)
               this.props.authTrue()
+              this.props.history.push('/dashboard')
           }
         })
     }
@@ -60,7 +63,7 @@ class SignInComponent extends Component{
                 {form.map((elem)=>{
                     return <Input form={elem} key={elem.id}/>
                 })}
-                <button onClick={this.signIn()}>Log in</button>
+                <button onClick={this.signIn}>Log in</button>
             </div>
         )
     }

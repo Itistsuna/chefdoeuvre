@@ -20,7 +20,7 @@ const userReducer = (state = initialState, action) => {
                 ...state,
                 auth: true
             }
-        case 'AUTh_FALSE':
+        case 'AUTH_FALSE':
             return{
                 ...state,
                 auth:false

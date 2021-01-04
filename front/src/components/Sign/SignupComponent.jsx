@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
-import Input from './Form/Input'
+import Input from '../Form/Input'
 class SignupComponent extends Component{
     constructor(props){
         super(props);
@@ -19,9 +19,10 @@ class SignupComponent extends Component{
         this.handleAdress = this.handleAdress.bind(this)
         this.handleCp = this.handleCp.bind(this)
         this.handleCity = this.handleCity.bind(this)
-        this.handleMail = this.handleAdress.bind(this)
+        this.handleMail = this.handleMail.bind(this)
         this.handleTel = this.handleTel.bind(this)
         this.handlePassword = this.handlePassword.bind(this)
+        this.signUp = this.signUp.bind(this)
     }
 
     handleName(event){
@@ -66,7 +67,7 @@ class SignupComponent extends Component{
     }
 
     signUp(){
-        axios.post('http://localhost:8080/sign-up',{
+        const userObject = {
             name: this.state.name,
             surname: this.state.prenom,
             adress: this.state.adress,
@@ -75,8 +76,13 @@ class SignupComponent extends Component{
             telephone: this.state.tel,
             email: this.state.mail,
             password: this.state.password
-            
-        }).then((result)=>{console.log(result);})
+        }
+        axios.post('http://localhost:8080/sign-up', userObject).then((result) =>
+        {console.log('here');
+        if(result.data === "Inscription done"){
+            console.log("here2");
+            this.props.history.push('/sign-in')
+        }})
     }
     
     render(){
@@ -153,6 +159,9 @@ class SignupComponent extends Component{
                       return <Input form={elem} key={elem.id}/>
                   })
               }  
+              <button onClick={this.signUp}>
+                  Sign Up
+              </button>
             </div>
         )   
     }
