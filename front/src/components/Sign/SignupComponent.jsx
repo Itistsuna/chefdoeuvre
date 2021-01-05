@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import NavSign from "./navSign"
 import Input from '../Form/Input'
+import Wawes from "../Animation/Wawes"
 import '../../scss/signUp.css'
 class SignupComponent extends Component{
     constructor(props){
@@ -68,7 +69,8 @@ class SignupComponent extends Component{
         })
     }
 
-    signUp(){
+    signUp(e){
+        e.preventDefault()
         const userObject = {
             name: this.state.name,
             surname: this.state.prenom,
@@ -156,11 +158,12 @@ class SignupComponent extends Component{
         ]
         return(
             <div>
+                <Wawes/>
                 <NavSign/>
                 <style>
                     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
                 </style> 
-                <form >
+                <form className="wrapper" >
                 {
                   form.map((elem)=>{
                       return <Input form={elem} key={elem.id}/>

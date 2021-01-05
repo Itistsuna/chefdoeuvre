@@ -12,7 +12,7 @@ body {
 }
 
 .navBarSign {
-  margin: 4% 40%;
+  margin: 4% 36%;
   width: 20vw;
   height: 5vh;
 }
@@ -52,17 +52,6 @@ form {
   background-color: rgba(0, 0, 0, 0.25);
 }
 
-form .input {
-  margin: 2.5% 27%;
-  height: 5vh;
-}
-
-form .input input {
-  height: 2.5vh;
-  width: 14vw;
-  border-radius: 3px;
-}
-
 form button {
   -webkit-box-shadow: 0 0 0;
           box-shadow: 0 0 0;
@@ -70,7 +59,7 @@ form button {
   border-radius: 6px;
   height: 4vh;
   width: 10vw;
-  margin: 2.5% 33%;
+  margin: 2.5% 25%;
   -webkit-box-shadow: inset 0px 1px 0px 0px #cf866c;
           box-shadow: inset 0px 1px 0px 0px #cf866c;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #d0451b), to(#bc3315));
@@ -90,5 +79,150 @@ form button:hover {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #bc3315), to(#d0451b));
   background: linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
   background-color: #bc3315;
+}
+
+.wrapper {
+  width: 450px;
+  background: #fff;
+  padding: 30px;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .input-data {
+  margin: 6%;
+  height: 40px;
+  width: 90%;
+  position: relative;
+}
+
+.wrapper .input-data input {
+  height: 100%;
+  width: 100%;
+  border: none;
+  border-radius: 3px;
+  font-size: 15px;
+  border-bottom: 2px solid silver;
+}
+
+.input-data input:focus ~ label,
+.input-data input:valid ~ label {
+  -webkit-transform: translateY(-30px);
+          transform: translateY(-30px);
+  font-size: 15px;
+  color: #000000;
+}
+
+.wrapper .input-data label {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  color: grey;
+  pointer-events: none;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.input-data .underline {
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  bottom: 0;
+}
+
+.input-data .underline:before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: #8a5943;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+
+.input-data input:focus ~ .underline:before,
+.input-data input:valid ~ .underline:before {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+@media (min-width: 200px) and (max-width: 800px) {
+  .navBarSign {
+    margin: 10px 12.5%;
+    width: 100vw;
+    height: 5vh;
+  }
+  .navBarSign a {
+    margin: 0 7%;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #cf866c;
+            box-shadow: inset 0px 1px 0px 0px #cf866c;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #d0451b), to(#bc3315));
+    background: linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+    background-color: #d0451b;
+    border-radius: 6px;
+    border: 1px solid #942911;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 18px;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #854629;
+  }
+  .navBarSign a:hover {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #bc3315), to(#d0451b));
+    background: linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+    background-color: #bc3315;
+  }
+  .wrapper {
+    margin: 0 5%;
+    width: 90vw;
+    background: #fff;
+    padding: 30px;
+    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  form {
+    margin: 0;
+    padding: 0.5%;
+    height: 90vh;
+    border-radius: 6px;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.25);
+  }
+  form button {
+    -webkit-box-shadow: 0 0 0;
+            box-shadow: 0 0 0;
+    cursor: pointer;
+    border-radius: 6px;
+    height: 6vh;
+    width: 30vw;
+    margin: 2.5% 25%;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #cf866c;
+            box-shadow: inset 0px 1px 0px 0px #cf866c;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #d0451b), to(#bc3315));
+    background: linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+    background-color: #d0451b;
+    border-radius: 6px;
+    border: 1px solid #942911;
+    display: inline-block;
+    color: #ffffff;
+    font-size: 15px;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #854629;
+  }
+  form button:hover {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #bc3315), to(#d0451b));
+    background: linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+    background-color: #bc3315;
+  }
 }
 /*# sourceMappingURL=signUp.css.map */

@@ -3,6 +3,8 @@ import Input from '../Form/Input'
 import {connect} from 'react-redux'
 import axios from "axios";
 import {setToken, authTrue} from '../../store/actions/userAction'
+import NavSign from "./navSign";
+import Waves from '../Animation/Wawes'
 class SignInComponent extends Component{
     constructor(props){
         super(props);
@@ -25,7 +27,8 @@ class SignInComponent extends Component{
         })
     }
 
-    signIn(){        
+    signIn(e){     
+        e.preventDefault()   
         let userObject = {
             password: this.state.password,
             email: this.state.mail   
@@ -60,11 +63,24 @@ class SignInComponent extends Component{
         ]
         return(
             <div>
-                {form.map((elem)=>{
-                    return <Input form={elem} key={elem.id}/>
-                })}
-                <button onClick={this.signIn}>Log in</button>
-            </div>
+            <Waves/>
+            <NavSign/>
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+            </style> 
+            <form className="wrapper">
+            {
+              form.map((elem)=>{
+                  return <Input form={elem} key={elem.id}/>
+              })
+            } 
+            <button onClick={this.signIn}>
+              Sign In
+            </button>    
+            </form>
+          
+          
+        </div>
         )
     }
 }
