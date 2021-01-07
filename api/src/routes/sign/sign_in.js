@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
-const config = require('./config/config.js')
+const config = require('../config/config.js')
 const signIn = async function(app,connect){
     app.post('/sign-in', (req,res) => {
         let sql = `SELECT * FROM client WHERE mail = '${req.body.email}'`
