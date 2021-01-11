@@ -28,7 +28,7 @@ require("./src/routes/sign/sign_in")(app,connect)
 require('./src/routes/products/createProduct')(app,connect)
 require('./src/routes/products/updateProduct')(app,connect)
 require('./src/routes/products/deleteProduct')(app,connect)
-
+require('./src/routes/middlewares/token')(app,connect)
 
 app.listen(8080, function() {
   console.log("server listening on: http://localhost:8080/");

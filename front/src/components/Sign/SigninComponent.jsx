@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Input from '../Form/Input'
 import {connect} from 'react-redux'
 import axios from "axios";
-import {setToken, authTrue} from '../../store/actions/userAction'
+import {setToken, authTrue, inscriptionDone} from '../../store/actions/userAction'
 import NavSign from "./navSign";
 import Waves from '../Animation/Wawes'
 class SignInComponent extends Component{
@@ -15,6 +15,11 @@ class SignInComponent extends Component{
         this.handleMail = this.handleMail.bind(this)
         this.handlePassword = this.handlePassword.bind(this)
         this.signIn = this.signIn.bind(this)
+    }
+    componentDidMount(){
+        if(this.props.inscription){
+            this.props.inscriptionDone() 
+        }
     }
     handleMail(event){
         this.setState({
@@ -37,7 +42,6 @@ class SignInComponent extends Component{
           if(result.data.auth === true) {
               this.props.setToken(result.data.token)
               this.props.authTrue()
-              this.props.history.push('/dashboard')
           }
         })
     }
@@ -87,10 +91,12 @@ class SignInComponent extends Component{
 
 const mapStateToProps = (state) => ({
     token : state.userReducer.token,
-    auth: state.userReducer.auth
+    auth: state.userReducer.auth,
+    inscription: state.userReducer.inscription
 })
 
 const mapDispatchToProps = {
+    inscriptionDone,
     setToken,
     authTrue
 }

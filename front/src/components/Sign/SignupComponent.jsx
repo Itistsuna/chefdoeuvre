@@ -4,6 +4,8 @@ import NavSign from "./navSign"
 import Input from '../Form/Input'
 import Wawes from "../Animation/Wawes"
 import '../../scss/signUp.css'
+import {setInscription} from '../../store/actions/userAction'
+import { connect } from 'react-redux'
 class SignupComponent extends Component{
     constructor(props){
         super(props);
@@ -81,11 +83,9 @@ class SignupComponent extends Component{
             email: this.state.mail,
             password: this.state.password
         }
-        axios.post('http://localhost:8080/sign-up', userObject).then((result) =>
-        {console.log('here');
+        axios.post('http://localhost:8080/sign-up', userObject).then((result) =>{
         if(result.data === "Inscription done"){
-            console.log("here2");
-            this.props.history.push('/sign-in')
+            this.props.setInscription()
         }})
     }
     
@@ -181,4 +181,8 @@ class SignupComponent extends Component{
     
 }
 
-export default SignupComponent
+const mapDispatchToProps = {
+    setInscription
+}
+
+export default connect(null,mapDispatchToProps)(SignupComponent)

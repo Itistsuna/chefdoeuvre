@@ -16,3 +16,11 @@ export const authFalse = () => ({
     type: 'AUTH_FALSE',
     auth: false
 })
+
+export const setInscription = () => ({
+    type: "SET_INSCRIPTION"
+})
+
+export const inscriptionDone = () => ({
+    type: "INSCRIPTION_DONE"
+})

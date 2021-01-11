@@ -1,9 +1,12 @@
 const auth = require('../middlewares/auth')
+const jwt = require('jsonwebtoken')
 const product = async function(app,connect){
     try {
-        app.post("/createProduct",auth,(req,res)=>{
+        app.post("/createProduct",auth, async (req,res)=>{
+            const token = req.headers.authorization.split(' ')[1]
+            const decodedToken = jwt.decode(token)
             const product = [
-                req.body.id,
+                decodedToken.id,
                 req.body.name,
                 req.body.description,
                 req.body.prix_ttc,

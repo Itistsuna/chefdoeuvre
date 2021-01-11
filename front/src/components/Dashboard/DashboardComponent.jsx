@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import {authFalse, deleteToken} from '../store/actions/userAction'
+import {authFalse, deleteToken} from '../../store/actions/userAction'
 
 class DashboardComponent extends Component{
     constructor(props){
@@ -13,7 +13,6 @@ class DashboardComponent extends Component{
     deconnect(){
         this.props.authFalse()
         this.props.deleteToken()
-        this.props.history.push('/sign-in')
     }
     render(){
         return(

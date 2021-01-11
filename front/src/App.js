@@ -1,9 +1,10 @@
 import './App.css';
-import {BrowserRouter as Router , Switch, Route, withRouter, } from 'react-router-dom'
+import {BrowserRouter as Router , Switch, Route, withRouter, Redirect, } from 'react-router-dom'
 import { Component } from 'react';
-import DashboardComponent from './components/DashboardComponent'
+import DashboardComponent from './components/Dashboard/DashboardComponent'
 import SignupComponent from './components/Sign/SignupComponent'
 import SigninComponent from './components/Sign/SigninComponent';
+import CreateProduct from './components/Product/CreateProduct'
 import {connect} from 'react-redux'
 
 class App extends Component{
@@ -11,16 +12,19 @@ class App extends Component{
     return(
       <Router>
         <Switch>
-          {
-            this.props.auth ? (
-              <Route path='/dashboard' component={DashboardComponent}/>
-            ):(
-              <>
-                <Route exact path='/' component={SignupComponent}/>
-                <Route path='/sign-in' component={SigninComponent}/>
-              </>
-            )
-          } 
+          <Route exact path='/'>
+            { this.props.auth ? <Redirect to="dashboard"/> : <SignupComponent/> }
+            { this.props.inscription ? <Redirect to="sign-in"/> : ''}
+          </Route>
+          <Route path='/sign-in'>
+            { this.props.auth ? <Redirect to="dashboard"/> : <SigninComponent/> }
+          </Route>
+          <Route path="/dashboard">
+            {this.props.auth ? <DashboardComponent/> : <Redirect to="sign-in"/> }
+          </Route>
+          <Route path="/product">
+            {this.props.auth ? <CreateProduct/> : <Redirect to="sign-in"/>}
+          </Route>
         </Switch>
       </Router>
     )
@@ -28,7 +32,8 @@ class App extends Component{
 }
 
 const mapStateToProps = (state) => ({
-  auth: state.userReducer.auth
+  auth: state.userReducer.auth,
+  inscription: state.userReducer.inscription
 })
 
 export default withRouter(connect(mapStateToProps)(App));
