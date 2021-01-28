@@ -1,5 +1,5 @@
 const initialState = {
-    products: [],
+    products: null,
     product: {}
 }
 
@@ -9,6 +9,11 @@ const productReducer = (state = initialState, action) => {
             return {
                 ...state,
                 products: action.products
+            }
+        case 'PRODUCT':
+            return {
+                ...state,
+                product: action.product
             }    
         default:
             return state;

@@ -6,6 +6,7 @@ import SignupComponent from './components/Sign/SignupComponent'
 import SigninComponent from './components/Sign/SigninComponent';
 import CreateProduct from './components/Product/CreateProduct'
 import {connect} from 'react-redux'
+import AllProduct from './components/Product/AllProduct';
 
 class App extends Component{
   render(){
@@ -22,8 +23,11 @@ class App extends Component{
           <Route path="/dashboard">
             {this.props.auth ? <DashboardComponent/> : <Redirect to="sign-in"/> }
           </Route>
-          <Route path="/product">
+          <Route path="/createproduct">
             {this.props.auth ? <CreateProduct/> : <Redirect to="sign-in"/>}
+          </Route>
+          <Route path='/product'>
+            {this.props.auth ? <AllProduct/> : <Redirect to='sign-in'/>}
           </Route>
         </Switch>
       </Router>

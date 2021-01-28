@@ -8,11 +8,13 @@ class CreateProductComponent extends Component {
         this.state = {
             name : "",
             description: "",
+            image: "",
             prix_ttc: "",
             stock: ""
         }
         this.handleName = this.handleName.bind(this)
         this.handleDescription = this.handleDescription.bind(this)
+        this.handleImage = this.handleImage.bind(this)
         this.handlePrix = this.handlePrix.bind(this)
         this.handleStock = this.handleStock.bind(this)
         this.createProduct = this.createProduct.bind(this)
@@ -37,11 +39,17 @@ class CreateProductComponent extends Component {
             stock: event.target.value
         })
     }
+    handleImage(event){
+        this.setState({
+            image: event.target.value
+        })
+    }
     createProduct(e){
         e.preventDefault()
         let product = {
             name: this.state.name,
             description: this.state.description,
+            image: this.state.image,
             prix_ttc: this.state.prix_ttc,
             stock: this.state.stock
         }
@@ -70,12 +78,20 @@ class CreateProductComponent extends Component {
                 id: 2
             },
             {
+                type: 'text',
+                name: 'image',
+                value: this.state.image,
+                onChange: this.handleImage,
+                label: 'Image ( URL ) :',
+                id:3
+            },
+            {
                 type: 'number',
                 name: 'prix_ttc',
                 value: this.state.prix_ttc,
                 onChange: this.handlePrix,
                 label: 'Prix ttc :',
-                id: 3
+                id: 4
             },
             {
                 type: 'number',
@@ -83,7 +99,7 @@ class CreateProductComponent extends Component {
                 value: this.state.stock,
                 onChange: this.handleStock,
                 label: 'Stock :',
-                id: 4
+                id: 5
             }
         ]
         return(

@@ -9,10 +9,11 @@ const product = async function(app,connect){
                 decodedToken.id,
                 req.body.name,
                 req.body.description,
+                req.body.image,
                 req.body.prix_ttc,
                 req.body.stock
             ]
-            const sql = "INSERT INTO produits(id_owner,name,description,prix_ttc,stock) VALUES(?)"
+            const sql = "INSERT INTO produits(id_owner,name,description,image,prix_ttc,stock) VALUES(?)"
             connect.query(sql,[product], (err)=>{
                 if (err) {
                     throw err

@@ -4,12 +4,12 @@ const connect = mysql.createConnection({
     user: process.env.user,
     password: process.env.password,
     database: process.env.dbname,
-    port: 3308
+    port: 3307
 })
 
 connect.connect(function(err){
     if(err) throw err
-    let productTable = "CREATE TABLE IF NOT EXISTS produits (id_produit INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, id_owner INT(255) NOT NULL, name VARCHAR(1000) NOT NULL, description VARCHAR(2000) NOT NULL,prix_ttc INT(255) NOT NULL, stock INT(255) NOT NULL, FOREIGN KEY(id_owner) REFERENCES client(id_client))"
+    let productTable = "CREATE TABLE IF NOT EXISTS produits (id_produit INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, id_owner INT(255) NOT NULL, name VARCHAR(1000) NOT NULL, description VARCHAR(2000) NOT NULL,image VARCHAR(4000) NOT NULL,prix_ttc INT(255) NOT NULL, stock INT(255) NOT NULL, FOREIGN KEY(id_owner) REFERENCES client(id_client))"
     let panierTable = "CREATE TABLE IF NOT EXISTS paniers (id_panier INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, id_produit INT(255) NOT NULL,quantité INT(255) NOT NULL, FOREIGN KEY (id_produit) REFERENCES produits(id_produit))"
     let clientTable = "CREATE TABLE IF NOT EXISTS client (id_client INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, nom VARCHAR(255) NOT NULL, prenom VARCHAR(255) NOT NULL,adresse VARCHAR(255) NOT NULL, code_postal INT(255) NOT NULL, ville VARCHAR(255) NOT NULL, telephone INT(255) NOT NULL, mail VARCHAR(255) NOT NULL, mot_de_passe VARCHAR(255) NOT NULL)"
     let livraisonsTable = "CREATE TABLE IF NOT EXISTS livraisons (id_livraison INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, id_cmd INT(255) NOT NULL, adresse VARCHAR(255) NOT NULL, code_postal INT(255) NOT NULL, ville VARCHAR(255) NOT NULL, FOREIGN KEY(id_cmd) REFERENCES commandes(id_cmd))"
