@@ -1,6 +1,6 @@
 import Axios from 'axios'
 import React , {Component} from 'react'
-import { addProducts, oneProduct } from '../../store/actions/productAction'
+import { addProducts } from '../../store/actions/productAction'
 import OneProductComponent from './OneProduct'
 import {connect} from 'react-redux'
 class AllProductComponent extends Component {
@@ -23,8 +23,7 @@ class AllProductComponent extends Component {
 }
 
 const mapDispatchToProps = {
-    addProducts,
-    oneProduct
+    addProducts
 }
 
 const mapStateToProps = (state) => ({

@@ -9,7 +9,8 @@ const signIn = async function(app,connect){
                 if (err) throw err
                 let token = await jwt.sign({
                     id : result[0].id_client,
-                    name : result[0].nom
+                    name : result[0].nom,
+                    surname: result[0].prenom
                 }, config.secret, {expiresIn: "24h"})
                 let checkPassword = await bcrypt.compare(req.body.password, result[0].mot_de_passe)
                 if (checkPassword){

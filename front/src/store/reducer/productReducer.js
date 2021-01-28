@@ -1,6 +1,7 @@
 const initialState = {
     products: null,
-    product: {}
+    product: null,
+    productOwner: null
 }
 
 const productReducer = (state = initialState, action) => {
@@ -10,6 +11,11 @@ const productReducer = (state = initialState, action) => {
                 ...state,
                 products: action.products
             }
+        case 'ADD_PRODUCTSOWNER':
+        return {
+            ...state,
+            productOwner: action.products
+        }
         case 'PRODUCT':
             return {
                 ...state,
